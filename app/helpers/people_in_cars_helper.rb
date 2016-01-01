@@ -1,0 +1,2 @@
+module PeopleInCarsHelper
+end

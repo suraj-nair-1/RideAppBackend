@@ -1,0 +1,2 @@
+class PeopleInEventsController < ApplicationController
+end

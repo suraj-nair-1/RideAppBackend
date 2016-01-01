@@ -1,0 +1,2 @@
+class PeopleInCarsController < ApplicationController
+end
