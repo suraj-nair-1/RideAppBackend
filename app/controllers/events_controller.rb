@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 	end
 
 	def new
-		#@event = Event.new
+		@event = Event.new
 	end
 
 	def edit
@@ -20,15 +20,15 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		#@event = Event.new(event_params)
+		@event = Event.new(event_params)
 
 		render plain: params[:event].inspect
 
-		# if @event.save
-		# 	redirect_to @event
-		# else 
-		# 	render 'new'
-		# end
+		if @event.save
+			redirect_to @event
+		else 
+			render 'new'
+		end
 	end
 
 	def update
@@ -44,13 +44,9 @@ class EventsController < ApplicationController
 	private
 		def event_params
 
-			params.permit(:event_id,
-			 	 :date, :name, :location_name, :address, 
+			params.require(:event).permit(:event_id,
+				 :date, :name, :location_name, :address, 
 			 	 :city, :description)
-
-			# params.require(:event).permit(:event_id,
-			# 	 :date, :name, :location_name, :address, 
-			# 	 :city, :description)
 		end
 
 end
